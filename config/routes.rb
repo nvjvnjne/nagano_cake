@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
   root to: 'public/homes#top'
   get '/about'=>'public/homes#about', as: 'about'
+  resources :items
 
   #管理者用
   #URL /admin/sign_in
