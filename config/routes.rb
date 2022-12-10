@@ -8,14 +8,19 @@ Rails.application.routes.draw do
   }
   root to: 'public/homes#top'
   get '/about'=>'public/homes#about', as: 'about'
-  resources :items
+  scope module: :public do
+    resources :items, only: [:index, :show]
+  end
 
   #管理者用
   #URL /admin/sign_in
-    devise_for :admins, skip: [:registrations, :passwords], controllers: {
+    devise_for :admin, skip: [:registrations, :passwords], controllers: {
       sessions: "admin/sessions"
     }
     get '/admin'=>'admin/homes#top', as: 'admin_top'
+    namespace :admin do
+      resources :items, only: [:edit, :index, :new, :show]
+    end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
