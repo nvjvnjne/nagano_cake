@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   }
   root to: 'public/homes#top'
   get '/about'=>'public/homes#about', as: 'about'
+  #会員の実装
+  get 'customers/my_page'=>'public/customers#show', as: 'my_page'
+  get 'customers/information/edit'=>'public/customers#edit', as: 'customers_edit'
+  #
   scope module: :public do
     resources :items, only: [:index, :show]
   end
