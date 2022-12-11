@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index]
-    resources :addresses, only: [:create, :index, :edit]
+    resources :addresses, only: [:create, :index, :edit, :update, :destroy]
   end
 
   #管理者用
