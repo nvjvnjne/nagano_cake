@@ -2,4 +2,7 @@ class Public::ItemsController < ApplicationController
 
   def index
   end
+
+  def edit
+  end
 end
