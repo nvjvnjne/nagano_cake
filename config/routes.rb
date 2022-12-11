@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   #会員の実装
   get 'customers/my_page'=>'public/customers#show', as: 'my_page'
   get 'customers/information/edit'=>'public/customers#edit', as: 'customers_edit'
+  patch 'customers/information'=>'public/customers#update', as: 'customers_information'
   #
   scope module: :public do
     resources :items, only: [:index, :show]
