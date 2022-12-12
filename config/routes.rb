@@ -12,11 +12,15 @@ Rails.application.routes.draw do
   get 'customers/my_page'=>'public/customers#show', as: 'my_page'
   get 'customers/information/edit'=>'public/customers#edit', as: 'customers_edit'
   patch 'customers/information'=>'public/customers#update', as: 'customers_information'
+  #注文の実装
+  post 'orders/confirm'=>'public/orders#confirm', as: 'order_confirm'
+  get 'orders/complete'=>'public/orders#complete', as: 'order_complete'
   #
   scope module: :public do
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index]
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
+    resources :orders, only: [:create, :index, :show, :new]
   end
 
   #管理者用
@@ -28,6 +32,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :items, only: [:edit, :index, :new, :show]
       resources :customers, only: [:edit, :index, :show]
+      resources :orders, only: [:show, :update]
     end
 
 
