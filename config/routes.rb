@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     }
     get '/admin'=>'admin/homes#top', as: 'admin_top'
     namespace :admin do
-      resources :items, only: [:edit, :index, :new, :show]
+      resources :items, only: [:edit, :index, :new, :create, :show, :update]
       resources :customers, only: [:edit, :index, :show]
       resources :orders, only: [:show, :update]
     end
