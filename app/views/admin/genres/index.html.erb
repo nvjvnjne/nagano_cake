@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row mt-4 pl-3">
+    <h4>
+      <span class="border px-3" style="background-color: #f5f5f5">ジャンル一覧・追加</span>
+    </h4>
+  </div>
+
+  <%= form_with model: Genre.new, url: admin_genres_path, method: :post do |f| %>
+  <div class="row mt-5">
+    <label for="name" class="col-sm-2 col-form-label">ジャンル名</label>
+    <div class="col-sm-3">
+      <%= f.text_field :name, class:"form-control", placeholder:"ジャンル名", id:"name" %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.submit "新規登録", class:"form-control btn btn-success ml-4" %>
+    </div>
+  </div>
+  <% end %>
+</div>
