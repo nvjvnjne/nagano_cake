@@ -7,32 +7,38 @@
 
   <div class="row mt-5">
     <div class="col-sm-5">
-      <%= @item.image %>
+      <%= image_tag @item.get_image(250, 300) %>
     </div>
     <div class="col-sm-7">
       <table class="table table-borderless">
         <tbody>
           <tr>
             <th>商品名</th>
-            <th><%= item.name %></th>
+            <th><%= @item.name %></th>
           </tr>
           <tr>
             <th>商品説明</th>
-            <th><%= item.introduction %></th>
+            <th><%= @item.introduction %></th>
           </tr>
           <tr>
             <th>ジャンル</th>
-            <th></th>
+            <th><%= @item.genre.name %></th>
           </tr>
           <tr>
             <th>税込価格<br>
             (税抜価格)
             </th>
-            <th><%= item.price %></th>
+            <th><%= @item.with_tax_price %>(<%= @item.price %>)</th>
           </tr>
           <tr>
             <th>販売ステータス</th>
-            <th></th>
+            <th>
+              <% if @item.is_active %>
+                <p class="text-success">販売中</p>
+              <% else %>
+                <p class="text-secondary">販売停止中</p>
+              <% end %>
+            </th>
           </tr>
         </tbody>
       </table>

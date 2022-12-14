@@ -1,7 +1,13 @@
 class Item < ApplicationRecord
 
+  validates :is_active, inclusion: { in: [true, false] }
+
   has_one_attached :image
   belongs_to :genre
+
+  def with_tax_price
+    (price * 1.1).floor
+  end
 
   def get_image(width, height)
     unless image.attached?
