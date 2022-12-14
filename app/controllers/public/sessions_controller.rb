@@ -10,6 +10,14 @@ class Public::SessionsController < Devise::SessionsController
     '/'
   end
 
+  protected
+
+  def customer_state
+    @customer = Customer.find_by(email: params[:customer][:email])
+    return if !@customer
+    if @customer.valid_password?(params[:customer][:password])
+
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
