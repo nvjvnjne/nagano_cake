@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'customers/my_page'=>'public/customers#show', as: 'my_page'
   get 'customers/information/edit'=>'public/customers#edit', as: 'customers_edit'
   patch 'customers/information'=>'public/customers#update', as: 'customers_information'
+  get 'customers/unsubscribe'=>'public/customers#unsubscribe', as: 'customers_unsubscribe'
+  patch 'customers/withdraw'=>'public/customers#withdraw', as: 'customers_withdraw'
   #注文の実装
   post 'orders/confirm'=>'public/orders#confirm', as: 'order_confirm'
   get 'orders/complete'=>'public/orders#complete', as: 'order_complete'

@@ -10,6 +10,16 @@ class Public::CustomersController < ApplicationController
     current_customer.update(customer_params)
     redirect_to my_page_path(current_customer)
   end
+  
+  def unsubscribe
+  end
+  
+  def withdraw
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to '/'
+  end
 
   private
 
