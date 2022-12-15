@@ -6,10 +6,6 @@ class Customer < ApplicationRecord
 
   validates :is_deleted, inclusion: { in: [true, false] }
 
-  def active_for_authentification?
-    super && (is_deleted == false)
-  end
-
   has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
 
