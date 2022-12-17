@@ -8,7 +8,7 @@
   <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
     <div class="row mt-4">
       <label for="id" class="col-sm-2 col-form-label">会員ID</label>
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-form-label">
         <%= @customer.id %>
       </div>
     </div>
