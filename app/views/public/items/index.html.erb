@@ -23,10 +23,14 @@
         <% @items.each do |item| %>
         <div class="item-box d-flex flex-column">
           <div class="item-image">
-            <%= image_tag item.get_image(150, 200) %>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image(150, 200) %>
+            <% end %>
           </div>
           <div class="item-name">
-            <%= item.name %>
+            <%= link_to item_path(item.id) do %>
+              <%= item.name %>
+            <% end %>
           </div>
           <div class="item-price">
             ¥<%= item.price %>
