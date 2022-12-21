@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   #注文の実装
   post 'orders/confirm'=>'public/orders#confirm', as: 'order_confirm'
   get 'orders/complete'=>'public/orders#complete', as: 'order_complete'
+  #カート全削除
+  delete 'cart_items/destroy_all'=>'public/cart_items#destroy_all' , as: 'cart_item_destroy_all'
   #
   scope module: :public do
     resources :items, only: [:index, :show]
