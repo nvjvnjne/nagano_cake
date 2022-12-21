@@ -14,4 +14,8 @@ class Customer < ApplicationRecord
     last_name + '' + first_name
   end
 
+  def address_display
+    '〒' + postal_code + '' + address
+  end
+
 end
