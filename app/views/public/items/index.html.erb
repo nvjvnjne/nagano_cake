@@ -22,12 +22,12 @@
       <div class="item-group d-flex flex-row flex-wrap mt-3">
         <% @items.each do |item| %>
         <div class="item-box d-flex flex-column">
-          <div class="item-image">
+          <div class="item-image px-2">
             <%= link_to item_path(item.id) do %>
-              <%= image_tag item.get_image(150, 200) %>
+              <%= image_tag item.get_image(200, 300) %>
             <% end %>
           </div>
-          <div class="item-name">
+          <div class="item-name text-truncate">
             <%= link_to item_path(item.id) do %>
               <%= item.name %>
             <% end %>
