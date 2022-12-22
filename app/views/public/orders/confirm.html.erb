@@ -1,12 +1,12 @@
 <div class-"container">
-    <div class="row mt-4">
+    <div class="row mt-4 pl-4">
       <h4>
-        <span class="border px-3" style="background-color: #f5f5f5;">注文情報確認</span>
+        <span class="border px-3 ml-3" style="background-color: #f5f5f5;">注文情報確認</span>
       </h4>
     </div>
 
     <div class="row">
-      <div class="col-sm-5">
+      <div class="col-sm-7">
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -45,7 +45,7 @@
             </tr>
             <tr>
               <th>請求金額</th>
-              <th><%= @order.total_payment %></th>
+              <th><%= @order.shipping_cost + @sum %></th>
             </tr>
           </tbody>
         </table>
@@ -57,7 +57,7 @@
         <h4><strong>支払方法</strong></h4>
       </div>
       <div class="col-sm-3">
-        <%= @order.payment_method %>
+        <%= @order.payment_method_i18n %>
       </div>
     </div>
 
@@ -66,7 +66,7 @@
         <h4><strong>お届け先</strong></h4>
       </div>
       <div class="col-sm-6">
-        <%= @order.address %>
+        <p>〒<%= @order.postal_code + @order.address + @order.name %></p>
       </div>
     </div>
 </div>
