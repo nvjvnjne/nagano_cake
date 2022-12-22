@@ -19,6 +19,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
+    @order = Order.new(order_params)
   end
 
   def complete
