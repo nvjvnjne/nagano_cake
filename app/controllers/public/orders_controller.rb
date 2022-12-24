@@ -7,8 +7,18 @@ class Public::OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     order.customer_id = current_customer.id
-    order.save
-    redirect_to order_complete_path
+    if order.save
+      @cart_items = current_customer.cart_items
+      @cart_items.each do |cart_item|
+        order_detail = OrderDetail.new(order_id: order.id)
+        order_detail.item_id = cart_item.item_id
+        order_detail.price = cart_item.item.with_tax_price
+        order_detail.amount = cart_item.amount
+        order_detail.save
+      end
+      @cart_items.destroy_all
+      redirect_to order_complete_path
+    end
   end
 
   def index
@@ -16,6 +26,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @cart_items = current_customer.cart_items
+    @sum = 0
+    @order.shipping_cost = 800
   end
 
   def confirm
