@@ -12,3 +12,10 @@ ja:
         producing_now: "製作中"
         shipping_preparation: "発送準備中"
         have_shipped: "発送済み"
+
+    order_detail:
+      making_status:
+        impossible: "製作不可"
+        waiting: "製作待ち"
+        making: "製作中"
+        have_made: "製作完了"

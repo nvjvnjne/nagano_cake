@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'orders/complete'=>'public/orders#complete', as: 'order_complete'
   #カート全削除
   delete 'cart_items/destroy_all'=>'public/cart_items#destroy_all' , as: 'cart_item_destroy_all'
-  
+
   #
   scope module: :public do
     resources :items, only: [:index, :show]
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       resources :items, only: [:edit, :index, :new, :create, :show, :update]
       resources :customers, only: [:edit, :index, :show, :update]
       resources :orders, only: [:show, :update]
+      resources :order_details, only: [:update]
       resources :genres, only: [:create, :index, :edit, :update]
     end
 
