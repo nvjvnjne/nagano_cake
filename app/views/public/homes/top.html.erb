@@ -30,10 +30,31 @@
     <div class="col-sm-3">
     </div>
     <div class="col-sm-9">
-      <div class="item-list">
-        <h3><strong>新着商品</strong></h3>
+      <h3><strong>新着商品</strong></h3>
+      <div class="item-group d-flex flex-row flex-wrap mt-3">
+        <% @items.each do |item| %>
+          <div class="item-group d-flex flex-column px-2 my-2">
+            <div class="item-image">
+              <%= link_to item_path(item.id) do %>
+                <%= image_tag item.get_image(200, 200) %>
+              <% end %>
+            </div>
+            <div class="item-name">
+              <%= link_to item_path(item.id) do %>
+                <%= item.name %>
+              <% end %>
+            </div>
+            <div class="item-price">
+              <%= item.price %>
+            </div>
+          </div>
+        <% end %>
       </div>
-
+    </div>
+  </div>
+  <div class="row d-flex flex-row-reverse mt-2">
+    <div class="page">
+      <%= link_to "すべての商品を見る>", items_path %>
     </div>
   </div>
 </div>
